@@ -1,4 +1,4 @@
-package com.clothify.ecommerce.DTO;
+package com.clothify.ecommerce.dto;
 
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -17,5 +17,4 @@ public class ProductDTO {
     private String productSizeId;
     private LocalDate createdDate;
     private LocalDate updatedDate;
-
 }
