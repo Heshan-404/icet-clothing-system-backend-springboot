@@ -1,4 +1,4 @@
-package com.clothify.ecommerce.Entity;
+package com.clothify.ecommerce.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
