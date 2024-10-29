@@ -1,0 +1,11 @@
+spring.jpa:
+  database: POSTGRESQL
+  hibernate.ddl-auto: create-drop
+  show-sql: true
+
+spring.datasource:
+  platform: postgres
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://tanned-rooster-6855.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/icet_clothing_db
+  username: a_t_heshan
+  password: zvHJChsmcU2NdLqCoYmkRQ
