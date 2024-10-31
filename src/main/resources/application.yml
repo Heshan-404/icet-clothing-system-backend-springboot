@@ -2,10 +2,22 @@ spring.jpa:
   database: POSTGRESQL
   hibernate.ddl-auto: create-drop
   show-sql: true
+  properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+#spring.datasource:
+#  platform: postgres
+#  driverClassName: org.postgresql.Driver
+#  url: jdbc:postgresql://tanned-rooster-6855.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/icet_clothing_db
+#  username: a_t_heshan
+#  password: zvHJChsmcU2NdLqCoYmkRQ
+
 
 spring.datasource:
   platform: postgres
   driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://tanned-rooster-6855.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/icet_clothing_db
-  username: a_t_heshan
-  password: zvHJChsmcU2NdLqCoYmkRQ
+  url: jdbc:postgresql://localhost:5432/icet_clothing_db
+  username: postgres
+  password: 1234
+
+spring.servlet.multipart.max-file-size: 1024MB
+spring.servlet.multipart.max-request-size: 1024MB
+spring.servlet.multipart.enabled: true
