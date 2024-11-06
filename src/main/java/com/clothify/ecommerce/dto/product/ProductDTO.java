@@ -34,5 +34,4 @@ public class ProductDTO {
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
     }
-
 }
