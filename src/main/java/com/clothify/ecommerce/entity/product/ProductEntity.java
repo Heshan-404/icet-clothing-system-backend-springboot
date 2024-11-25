@@ -1,41 +1,46 @@
 package com.clothify.ecommerce.entity.product;
 
+import com.clothify.ecommerce.dto.product.ProductDTO;
+import com.clothify.ecommerce.entity.product.category.CategoryEntity;
+import com.clothify.ecommerce.entity.product.image.ImageEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.ToString;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
+
 
 @Data
+@Entity(name = "product")
 @ToString
-@AllArgsConstructor
-@Entity
-@Builder
-@Table(name = "product")
-@NoArgsConstructor
 public class ProductEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "product_id")
-    private Integer productId;
-
-    @Column(name = "category_id")
-    private Integer categoryId;
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer id;
     private String name;
     private String description;
     private Double price;
     private Double discount;
+    private Date updateDate = new Date(System.currentTimeMillis());
+    private Date createdDate = new Date(System.currentTimeMillis());
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
+    private Set<ImageEntity> imageList = new HashSet<>();
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+    @JsonProperty("stockQty")
+    private List<Integer> stockQty;
 
-    @Column(name = "product_sizes_count")
-    private List<Integer> productSizesCount;
-
-    @Column(name = "created_date")
-    private LocalDate createdDate;
-
-    @Column(name = "updated_date")
-    private LocalDate updatedDate;
-
-    @Column(name = "image_id_list")
-    private List<Integer> imageIdList;
+    public void update(ProductDTO product) {
+        this.name = product.getName();
+        this.description = product.getDescription();
+        this.price = product.getPrice();
+        this.discount = product.getDiscount();
+        this.updateDate = new Date(System.currentTimeMillis());
+        this.stockQty = product.getStockQty();
+    }
 }

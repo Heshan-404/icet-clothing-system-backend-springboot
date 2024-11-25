@@ -1,23 +1,43 @@
 spring.jpa:
   database: POSTGRESQL
-  hibernate.ddl-auto: create-drop
+  hibernate.ddl-auto: update
   show-sql: true
+  #  properties:
+  #    hibernate:
+  #      format_sql: true
   properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 #spring.datasource:
 #  platform: postgres
 #  driverClassName: org.postgresql.Driver
-#  url: jdbc:postgresql://tanned-rooster-6855.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/icet_clothing_db
+#  url: jdbc:postgresql://tanned-rooster-6855.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/icet_clothing_db?tcpKeepAlive=true
 #  username: a_t_heshan
 #  password: zvHJChsmcU2NdLqCoYmkRQ
 
 
 spring.datasource:
+  initialization-mode: always
   platform: postgres
   driverClassName: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/icet_clothing_db
+  url: jdbc:postgresql://localhost:5432/test_icet_clothing_db
   username: postgres
   password: 1234
 
 spring.servlet.multipart.max-file-size: 1024MB
 spring.servlet.multipart.max-request-size: 1024MB
 spring.servlet.multipart.enabled: true
+
+sql:
+  init:
+    mode: always
+    continue-on-error: true
+
+
+spring.datasource.hikari.max-lifetime: 2700000  # 27 minutes (less than 30 minutes)
+
+
+spring.datasource.hikari.connection-timeout: 30000  # 30 seconds
+
+spring.datasource.hikari.validation-timeout: 3000  # 3 seconds
+spring.datasource.hikari.idle-timeout: 600000  # 10 minutes
+spring.datasource.hikari.connection-test-query: SELECT 1  # Check the connection is alive
+
