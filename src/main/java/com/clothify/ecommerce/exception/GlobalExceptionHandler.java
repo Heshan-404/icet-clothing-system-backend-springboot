@@ -1,6 +1,6 @@
 package com.clothify.ecommerce.exception;
 
-import com.clothify.ecommerce.exception.JWT.InvalidJwtTokenException;
+import com.clothify.ecommerce.exception.jwt.InvalidJwtTokenException;
 import com.clothify.ecommerce.exception.order.StockLimitExceededException;
 import com.clothify.ecommerce.exception.user.RoleNotFoundException;
 import com.clothify.ecommerce.exception.user.UserEmailAlreadyRegisteredException;
