@@ -32,7 +32,7 @@ sql:
     continue-on-error: true
 
 
-spring.datasource.hikari.max-lifetime: 2700000  # 27 minutes (less than 30 minutes)
+spring.datasource.hikari.max-lifetime: 2700000  # 28 minutes (less than 30 minutes)
 
 
 spring.datasource.hikari.connection-timeout: 30000  # 30 seconds
